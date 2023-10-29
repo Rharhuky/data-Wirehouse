@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/processamento-etl")
-public class GerarJsonController {
+public class ProcessoEtl {
 
     private final JsonGenerator jsonGenerator;
 

@@ -14,13 +14,15 @@ import java.io.*;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Log4j2
+
 @Component
 public class JsonGenerator {
 
-    private final ProdutoRepositoryPG produtoRepositoryPG;
-    private final VendaRepositoryPG vendaRepositoryPG;
-    private final CidadeRepositoryPG cidadeRepositoryPG;
+    // TODO ADICIONAR PERSISTÊNCIA DO POSTGRE AQUI!
+
+//    private final ProdutoRepositoryPG produtoRepositoryPG;
+//    private final VendaRepositoryPG vendaRepositoryPG;
+//    private final CidadeRepositoryPG cidadeRepositoryPG;
 
     private final ProdutoRepository produtoRepository;
     private final VendaRepository vendaRepository;
