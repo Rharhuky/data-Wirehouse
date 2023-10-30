@@ -1,6 +1,6 @@
 package com.datawareHouse.controller;
 
-import com.datawareHouse.model.CidadeDataWare;
+import com.datawareHouse.model.postgres.CidadeDataWare;
 import com.datawareHouse.service.CidadeDataWareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

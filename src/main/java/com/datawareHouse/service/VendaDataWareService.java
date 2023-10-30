@@ -1,6 +1,6 @@
 package com.datawareHouse.service;
 
-import com.datawareHouse.model.VendaDataWare;
+import com.datawareHouse.model.postgres.VendaDataWare;
 import com.datawareHouse.repository.VendaDataWareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

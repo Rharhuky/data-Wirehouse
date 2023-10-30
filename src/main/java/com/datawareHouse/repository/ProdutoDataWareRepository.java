@@ -1,6 +1,6 @@
 package com.datawareHouse.repository;
 
-import com.datawareHouse.model.ProdutoDataWare;
+import com.datawareHouse.model.postgres.ProdutoDataWare;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

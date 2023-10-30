@@ -1,6 +1,6 @@
 package com.datawareHouse.service;
 
-import com.datawareHouse.model.CidadeDataWare;
+import com.datawareHouse.model.postgres.CidadeDataWare;
 import com.datawareHouse.repository.CidadeDataWareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

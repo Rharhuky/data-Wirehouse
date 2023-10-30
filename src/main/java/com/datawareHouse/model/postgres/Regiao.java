@@ -1,4 +1,4 @@
-package com.datawareHouse.model;
+package com.datawareHouse.model.postgres;
 
 import jakarta.persistence.Enumerated;
 
