@@ -8,8 +8,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-//@SpringBootApplication
-@SpringBootApplication(exclude = { HibernateJpaAutoConfiguration.class, DataSourceAutoConfiguration.class, CassandraDataAutoConfiguration.class,})
+@SpringBootApplication(exclude = CassandraDataAutoConfiguration.class)
 public class DatawareHouseApplication{
 
 	public static void main(String[] args) {
