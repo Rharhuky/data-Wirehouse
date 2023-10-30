@@ -8,4 +8,7 @@ import java.util.UUID;
 
 @Repository
 public interface ProdutoDataWareRepository extends JpaRepository<ProdutoDataWare, UUID> {
+
+    ProdutoDataWare findByNome(String produtoDataWareNome);
+
 }

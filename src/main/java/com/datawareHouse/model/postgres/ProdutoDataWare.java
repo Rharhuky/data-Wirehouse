@@ -17,8 +17,7 @@ import java.util.UUID;
 public class ProdutoDataWare {
 
     @Id
-    @UuidGenerator
-    private UUID produtoId;
+    private UUID idProduto;
 
     @Column(name = "nome_produto")
     private String nome;

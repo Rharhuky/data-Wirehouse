@@ -35,6 +35,10 @@ public class CidadeDataWareService {
         this.cidadeDataWareRepository.delete(cidade);
     }
 
+    public List<CidadeDataWare> criarCidades(List<CidadeDataWare> novasCidadesDataWare){
+        return this.cidadeDataWareRepository.saveAll(novasCidadesDataWare);
+    }
+
     public CidadeDataWare atualizarCidadeDataWarePeloId(UUID id, CidadeDataWare cidade){
 
         CidadeDataWare cidadeDataWare = this.cidadeDataWareRepository.findById(id).orElseThrow(RuntimeException::new);
@@ -42,5 +46,9 @@ public class CidadeDataWareService {
         cidadeDataWare.setRegiao(cidade.getRegiao());
 
         return this.cidadeDataWareRepository.save(cidadeDataWare);
+    }
+
+    public CidadeDataWare verCidadePeloNome(String nomeCidade){
+        return this.cidadeDataWareRepository.findByNome(nomeCidade);
     }
 }

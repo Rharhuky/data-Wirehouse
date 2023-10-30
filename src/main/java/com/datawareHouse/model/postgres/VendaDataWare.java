@@ -20,8 +20,7 @@ import java.util.UUID;
 public class VendaDataWare {
 
     @Id
-    @UuidGenerator
-    private UUID vendaId;
+    private UUID idVenda;
 
     private LocalDateTime horario = LocalDateTime.now();
 

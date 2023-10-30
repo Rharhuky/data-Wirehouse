@@ -1,5 +1,6 @@
 package com.datawareHouse.service;
 
+import com.datawareHouse.model.cassandra.Venda;
 import com.datawareHouse.model.postgres.VendaDataWare;
 import com.datawareHouse.repository.VendaDataWareRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,12 @@ public class VendaDataWareService {
 
     public VendaDataWare verVendaDataWarePeloId(UUID id){
         return this.vendaDataWareRepository.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+    public List<VendaDataWare> criarVendas(List<VendaDataWare> novasVendasDataWare){
+
+        return this.vendaDataWareRepository.saveAll(novasVendasDataWare);
+
     }
 
 

@@ -19,8 +19,7 @@ import java.util.UUID;
 public class CidadeDataWare {
 
     @Id
-    @UuidGenerator
-    private UUID cidadeId;
+    private UUID idCidade;
 
     private String nome;
 

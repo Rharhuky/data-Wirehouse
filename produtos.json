@@ -1,1 +1,4 @@
-[{"idProduto":"2ec851f7-005c-4111-a0d3-514e00d00c9d","nome":"Alcool","preco":null},{"idProduto":"eee8ad8a-3c26-4720-8064-7f93b2395208","nome":"Alcool","preco":15.0}]
+[
+  {"idProduto":"2ec851f7-005c-4111-a0d3-514e00d00c9d","nome":"Alcool","preco":null},
+  {"idProduto":"eee8ad8a-3c26-4720-8064-7f93b2395208","nome":"Alcool","preco":15.0}
+]

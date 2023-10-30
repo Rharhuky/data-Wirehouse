@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 @Repository
 public interface CidadeDataWareRepository extends JpaRepository<CidadeDataWare, UUID> {
+
+    CidadeDataWare findByNome(String cidadeDataWareNome);
 }
