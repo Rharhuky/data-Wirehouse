@@ -22,7 +22,6 @@ public class ProdutoController {
     @PostMapping
     public ResponseEntity<Produto> adicionarProduto(@RequestBody Produto produto) {
         produto.setIdProduto(UUID.randomUUID());
-
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoRepository.save(produto));
     }
 

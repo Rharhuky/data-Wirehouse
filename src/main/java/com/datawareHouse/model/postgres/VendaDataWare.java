@@ -16,18 +16,20 @@ import java.util.UUID;
 @NoArgsConstructor
 
 @Entity
-@Table(name = "vendas")
+@Table(name = "venda")
 public class VendaDataWare {
 
     @Id
+    @UuidGenerator
     private UUID idVenda;
 
     private LocalDateTime horario = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProdutoDataWare> produtos = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "id_produto", referencedColumnName = "id_produto")
+    private ProdutoDataWare produto;
 
     @ManyToOne
-    @JoinColumn(name = "cidade_id")
+    @JoinColumn(name = "id_cidade", referencedColumnName = "id_cidade")
     private CidadeDataWare cidade;
 }

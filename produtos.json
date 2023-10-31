@@ -1,4 +1,1 @@
-[
-  {"idProduto":"2ec851f7-005c-4111-a0d3-514e00d00c9d","nome":"Alcool","preco":null},
-  {"idProduto":"eee8ad8a-3c26-4720-8064-7f93b2395208","nome":"Alcool","preco":15.0}
-]
+[{"idProduto":"fef32bc7-edd6-4afb-b4dc-458ff239084b","nome":"playstation","preco":3000.0},{"idProduto":"4b4f7118-84a9-46cf-a794-5fbab8acc776","nome":"Caixa 2","preco":15.0},{"idProduto":"2ec851f7-005c-4111-a0d3-514e00d00c9d","nome":"Alcool","preco":2.0},{"idProduto":"db3c98e1-47b9-4cfd-8eaa-40e6f8dfd9a1","nome":"Caixa","preco":15.0},{"idProduto":"eee8ad8a-3c26-4720-8064-7f93b2395208","nome":"Pasta","preco":15.0},{"idProduto":"9edc09bc-9056-41b8-b02e-deb311f0f7af","nome":"Farinha","preco":5.0}]

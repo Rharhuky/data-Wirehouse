@@ -8,6 +8,7 @@ import com.datawareHouse.model.postgres.ProdutoDataWare;
 import com.datawareHouse.model.postgres.Regiao;
 import com.datawareHouse.model.postgres.VendaDataWare;
 import com.datawareHouse.repository.CidadeRepository;
+import com.datawareHouse.repository.ProdutoDataWareRepository;
 import com.datawareHouse.repository.ProdutoRepository;
 import com.datawareHouse.repository.VendaRepository;
 import com.datawareHouse.service.CidadeDataWareService;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -39,6 +41,9 @@ public class JsonGenerator {
 
     private final ObjectMapper objectMapper;
 
+
+    private final ProdutoDataWareRepository produtoDataWareRepository;
+
     public void transform() throws IOException {
         List<Produto> produtos = objectMapper.readValue(new File("produtos.json"), new TypeReference<>() {
 
@@ -50,9 +55,8 @@ public class JsonGenerator {
         List<Venda> vendas = objectMapper.readValue(new File("vendas.json"), new TypeReference<>() {
         });
 
-        vendaRepository.saveAll(vendas);
-        produtoRepository.saveAll(produtos);
-        cidadeRepository.saveAll(cidades);
+        produtoDataWareRepository.saveAll(produtos.stream().map(this::mapToProdutoDataWare).toList());
+
         postgresPersist();
     }
 
@@ -74,6 +78,7 @@ public class JsonGenerator {
 
     }
 
+
     /**
      * Persistencia no Postgres
      */
@@ -89,12 +94,12 @@ public class JsonGenerator {
                 .map(this::mapToCidadeDataWare)
                 .toList();
 
+
         this.cidadeServicePG.criarCidades(cidadesToPg);
         this.produtoServicePG.criarProdutos((produtosToPg));
 
 
-        List<VendaDataWare> vendasToPg = vendaRepository.findAll()
-                .stream()
+        List<VendaDataWare> vendasToPg = vendaRepository.findAll().stream()
                 .map(this::mapToVendaDataWare)
                 .toList();
 
@@ -126,12 +131,13 @@ public class JsonGenerator {
     private VendaDataWare mapToVendaDataWare(Venda venda){
 
         VendaDataWare vendaDataWare = new VendaDataWare();
-        vendaDataWare.setIdVenda(venda.getIdVenda());
 
         ProdutoDataWare produtoDataWare = this.produtoServicePG.verProdutoPeloNome(venda.getProduto());
-        vendaDataWare.getProdutos().add(produtoDataWare);
-        produtoDataWare.setVenda(vendaDataWare);
-        produtoServicePG.criarProdutoDataWare(produtoDataWare);
+        if (produtoDataWare != null) {
+            vendaDataWare.setProduto(produtoDataWare);
+            produtoDataWare.getVendas().add(vendaDataWare);
+
+        }
 
         CidadeDataWare cidadeDataWare = this.cidadeServicePG.verCidadePeloNome(venda.getCidade());
         cidadeDataWare.getVendas().add(vendaDataWare);

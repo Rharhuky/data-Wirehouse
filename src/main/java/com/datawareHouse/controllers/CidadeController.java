@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 
@@ -19,6 +20,7 @@ public class CidadeController {
 
     @PostMapping
     public ResponseEntity<Cidade> adicionarCidade(@RequestBody Cidade cidade) {
+        cidade.setIdCidade(UUID.randomUUID());
         return ResponseEntity.status(HttpStatus.CREATED).body(cidadeRepository.save(cidade));
     }
 
